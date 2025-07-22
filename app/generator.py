@@ -40,6 +40,7 @@ def generate_fs_from_requirement(
     "Write a Functional Specification Document for business stakeholders, strictly following the TEMPLATE headings and order.\n\n"
     "⚠️ Format all headings with hierarchical numbering (e.g., 1., 1.1., 2.1.1, etc.).\n"
     "⚠️ Do NOT use Markdown headings (no #, ##, etc.).\n"
+    "⚠️ Do NOT miss any headings and sub heading (if empty mark it NULL or NA).\n"
     "⚠️ Use tables where appropriate: format as grid tables using tabs or clear alignment, compatible with MS Word.\n\n"
     "Ensure the document is professional, readable, and copy-paste ready for MS Word formatting."
     )
@@ -75,6 +76,7 @@ def generate_ts_from_requirement(
     "Write a Technical Specification Document for business stakeholders, strictly following the TEMPLATE headings and order.\n\n"
     "⚠️ Format all headings with hierarchical numbering (e.g., 1., 1.1., 2.1.1, etc.).\n"
     "⚠️ Do NOT use Markdown headings (no #, ##, etc.).\n"
+    "⚠️ Do NOT miss any headings and sub heading (if empty mark it NULL or NA).\n"
     "⚠️ Use tables where appropriate: format as grid tables using tabs or clear alignment, compatible with MS Word.\n\n"
     "Ensure the document is professional, readable, and copy-paste ready for MS Word formatting."
     )
