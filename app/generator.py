@@ -70,16 +70,30 @@ def generate_ts_from_requirement(
         return "No technical specification template found in RAG."
 
     prompt_template = ChatPromptTemplate.from_template(
-        "You are an SAP Technical Consultant. Strictly use the TEMPLATE structure and headings provided below.\n\n"
+    "You are an experienced SAP Technical Consultant. Your task is to create a detailed Technical Specification Document for developers.\n"
+    "Strictly follow the TEMPLATE structure and include all sections as defined.\n\n"
+
     "REQUIREMENT:\n{requirement}\n\n"
+
     "TEMPLATE (STRICTLY FOLLOW):\n{ts_template}\n\n"
-    "Write a Technical Specification Document for business stakeholders, strictly following the TEMPLATE headings and order.\n\n"
-    "⚠️ Format all headings with hierarchical numbering (e.g., 1., 1.1., 2.1.1, etc.).\n"
-    "⚠️ Do NOT use Markdown headings (no #, ##, etc.).\n"
-    "⚠️ Do NOT miss any headings and sub heading (if empty mark it NULL or NA).\n"
-    "⚠️ Use tables where appropriate: format as grid tables using tabs or clear alignment, compatible with MS Word.\n\n"
-    "Ensure the document is professional, readable, and copy-paste ready for MS Word formatting."
-    )
+
+    "INSTRUCTIONS:\n"
+    "1. Use technical terminology relevant to SAP ABAP, SAP tables, structures, fields, BAPIs, enhancements, or interfaces.\n"
+    "2. Document should be suitable for developers to directly begin implementation.\n"
+    "3. Each section must provide **clear, actionable, and technically detailed** information.\n"
+    "4. Describe logic in terms of loops, joins, modularization (FORMs/Methods), and performance considerations.\n"
+    "5. For selection screens, mention parameter types, default values, validations.\n"
+    "6. For ALV reports, describe the use of `CL_GUI_ALV_GRID`, `CL_SALV_TABLE`, or field catalog setup.\n"
+    "7. Include SAP table-field mappings, join logic, filters, sorting, and grouping rules where applicable.\n"
+    "8. Use code snippets where necessary to show implementation approach.\n\n"
+
+    "⚠️ Format all headings using strict hierarchical numbering (e.g., 1., 1.1., 2.1.1, etc.).\n"
+    "⚠️ Do NOT use Markdown formatting (no #, ##, etc.).\n"
+    "⚠️ Do NOT omit any heading or subheading — if no information is available, use 'NA'.\n"
+    "⚠️ Use **grid tables**, formatted with tabs or clear cell alignment, fully compatible with MS Word.\n\n"
+
+    "Deliver a professionally written, technically detailed, and MS Word–friendly Technical Specification Document. Ensure clarity, structure, and completeness for developer use."
+)
     messages = prompt_template.format_messages(
         requirement=requirement,
         ts_template=retrieved_template
